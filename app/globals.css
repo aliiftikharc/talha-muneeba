@@ -396,15 +396,15 @@ h2 {
 
   .invite-shell::after {
     background:
-      radial-gradient(ellipse at center, rgba(251, 244, 231, 0.88) 0%, rgba(251, 244, 231, 0.76) 50%, rgba(251, 244, 231, 0.62) 100%),
-      linear-gradient(rgba(251, 244, 231, 0.46), rgba(251, 244, 231, 0.46)),
-      url("/couple-illustration-bg.png") center / cover no-repeat,
+      radial-gradient(ellipse at 50% 28%, rgba(251, 244, 231, 0.5) 0%, rgba(251, 244, 231, 0.66) 45%, rgba(251, 244, 231, 0.78) 100%),
+      linear-gradient(rgba(251, 244, 231, 0.28), rgba(251, 244, 231, 0.28)),
+      url("/couple-illustration-bg.png") center top / cover no-repeat,
       linear-gradient(
         180deg,
-        rgba(251, 244, 231, 0.16),
-        rgba(251, 244, 231, 0.9) 24%,
-        rgba(251, 244, 231, 0.94) 74%,
-        rgba(251, 244, 231, 0.35)
+        rgba(251, 244, 231, 0.08),
+        rgba(251, 244, 231, 0.7) 28%,
+        rgba(251, 244, 231, 0.82) 74%,
+        rgba(251, 244, 231, 0.42)
       );
   }
 
@@ -458,7 +458,16 @@ h2 {
     min-height: 92px;
     grid-template-columns: 34px 1fr;
     place-items: center start;
+    background: rgba(255, 251, 243, 0.64);
+    backdrop-filter: blur(3px);
     text-align: left;
+  }
+
+  .date-card {
+    background:
+      linear-gradient(180deg, rgba(18, 59, 45, 0.92) 0 36px, transparent 36px),
+      rgba(255, 251, 243, 0.66);
+    backdrop-filter: blur(3px);
   }
 
   .venue-card {
@@ -477,8 +486,8 @@ h2 {
 
 @media (max-width: 390px) {
   .invite-shell {
-    gap: 12px;
-    padding: 20px 10px;
+    gap: 10px;
+    padding: 16px 10px;
   }
 
   h1 {
@@ -494,11 +503,12 @@ h2 {
   }
 
   .date-card {
-    min-height: 146px;
+    min-height: 136px;
   }
 
   .detail-card {
-    padding: 16px 14px;
+    min-height: 82px;
+    padding: 14px 12px;
   }
 }
 
