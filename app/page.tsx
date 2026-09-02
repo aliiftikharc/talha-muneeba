@@ -5,6 +5,10 @@ const mapUrl = "https://maps.app.goo.gl/qX7mzFPHnXSJXwaR8";
 export default function Home() {
   return (
     <main className="invite-page">
+      <header className="site-header">
+        <p>Walima Invitation</p>
+      </header>
+
       <section className="invite-shell" aria-label="Walima invitation">
         <div className="ornament top" aria-hidden="true" />
 
