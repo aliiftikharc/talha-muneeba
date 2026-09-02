@@ -13,7 +13,9 @@ export default function Home() {
         <div className="ornament top" aria-hidden="true" />
 
         <p className="bismillah" lang="ar">
-          بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+          {
+            "\u0628\u0650\u0633\u0652\u0645\u0650 \u0671\u0644\u0644\u064e\u0651\u0670\u0647\u0650 \u0671\u0644\u0631\u064e\u0651\u062d\u0652\u0645\u064e\u0640\u0670\u0646\u0650 \u0671\u0644\u0631\u064e\u0651\u062d\u0650\u064a\u0645\u0650"
+          }
         </p>
         <p className="kicker">With the blessings of Allah Almighty</p>
 

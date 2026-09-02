@@ -96,12 +96,15 @@ body {
   z-index: -1;
   content: "";
   background:
+    radial-gradient(ellipse at center, rgba(251, 244, 231, 0.82) 0%, rgba(251, 244, 231, 0.7) 42%, rgba(251, 244, 231, 0.55) 100%),
+    linear-gradient(rgba(251, 244, 231, 0.38), rgba(251, 244, 231, 0.38)),
+    url("/couple-illustration-bg.png") center / cover no-repeat,
     linear-gradient(
       180deg,
-      rgba(251, 244, 231, 0.3),
-      rgba(251, 244, 231, 0.9) 32%,
-      rgba(251, 244, 231, 0.92) 66%,
-      rgba(251, 244, 231, 0.42)
+      rgba(251, 244, 231, 0.34),
+      rgba(251, 244, 231, 0.84) 34%,
+      rgba(251, 244, 231, 0.88) 66%,
+      rgba(251, 244, 231, 0.46)
     ),
     radial-gradient(ellipse at center, rgba(251, 244, 231, 0.64), transparent 58%);
 }
@@ -363,6 +366,7 @@ h2 {
   .date-card strong {
     font-size: 4.35rem;
   }
+
 }
 
 @media (max-width: 700px) {
@@ -392,6 +396,9 @@ h2 {
 
   .invite-shell::after {
     background:
+      radial-gradient(ellipse at center, rgba(251, 244, 231, 0.88) 0%, rgba(251, 244, 231, 0.76) 50%, rgba(251, 244, 231, 0.62) 100%),
+      linear-gradient(rgba(251, 244, 231, 0.46), rgba(251, 244, 231, 0.46)),
+      url("/couple-illustration-bg.png") center / cover no-repeat,
       linear-gradient(
         180deg,
         rgba(251, 244, 231, 0.16),
