@@ -1,0 +1,501 @@
+:root {
+  --emerald: #123b2d;
+  --emerald-deep: #08231b;
+  --gold: #b88a37;
+  --gold-soft: #dfc47f;
+  --ivory: #fbf4e7;
+  --paper: #f5ead8;
+  --ink: #241f19;
+  --muted: #655743;
+  --line: rgba(184, 138, 55, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top, rgba(223, 196, 127, 0.22), transparent 34rem),
+    linear-gradient(135deg, #061d16 0%, #123b2d 48%, #071a14 100%);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.invite-page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.invite-shell {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 48px 24px;
+  overflow: hidden;
+  text-align: center;
+  border: 0;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px rgba(223, 196, 127, 0.38);
+  isolation: isolate;
+}
+
+.invite-shell::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  background-image: url("/walima-arch-bg.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.invite-shell::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  background:
+    linear-gradient(
+      180deg,
+      rgba(251, 244, 231, 0.3),
+      rgba(251, 244, 231, 0.9) 32%,
+      rgba(251, 244, 231, 0.92) 66%,
+      rgba(251, 244, 231, 0.42)
+    ),
+    radial-gradient(ellipse at center, rgba(251, 244, 231, 0.64), transparent 58%);
+}
+
+.bismillah {
+  margin: 0;
+  color: var(--emerald);
+  font-size: 2.35rem;
+  line-height: 1.2;
+}
+
+.kicker,
+.occasion,
+.parentage,
+.invitation-copy,
+.closing,
+.detail-card p,
+.date-card p,
+.date-card small {
+  margin: 0;
+}
+
+.kicker,
+.occasion {
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title-group {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--emerald-deep);
+  font-weight: 500;
+  line-height: 0.96;
+}
+
+h1 {
+  font-size: 6.6rem;
+}
+
+h2 {
+  font-size: 5.25rem;
+}
+
+.parentage {
+  color: var(--muted);
+  font-size: 1.18rem;
+  line-height: 1.45;
+}
+
+.divider {
+  width: min(300px, 72%);
+  height: 1px;
+  margin: 10px 0 4px;
+  background: linear-gradient(90deg, transparent, var(--line), var(--gold), var(--line), transparent);
+}
+
+.invitation-copy {
+  max-width: 560px;
+  color: #4e4437;
+  font-size: 1.18rem;
+  line-height: 1.65;
+}
+
+.event-panel {
+  width: min(100%, 700px);
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.date-card {
+  position: relative;
+  min-height: 206px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 4px;
+  padding: 28px 18px 22px;
+  color: var(--emerald-deep);
+  background:
+    linear-gradient(180deg, rgba(18, 59, 45, 0.97) 0 36px, transparent 36px),
+    rgba(255, 251, 243, 0.82);
+  border: 1px solid rgba(184, 138, 55, 0.42);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(72, 50, 22, 0.11);
+}
+
+.calendar-ring {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  display: flex;
+  gap: 58px;
+  transform: translateX(-50%);
+}
+
+.calendar-ring span {
+  width: 10px;
+  height: 22px;
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  border-radius: 999px;
+  box-shadow: 0 2px 0 rgba(8, 35, 27, 0.24);
+}
+
+.date-card p {
+  margin-top: 22px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.date-card strong {
+  display: block;
+  color: var(--emerald-deep);
+  font-size: 5.1rem;
+  font-weight: 500;
+  line-height: 0.9;
+}
+
+.date-card small {
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.detail-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.detail-card {
+  min-height: 97px;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 20px 18px;
+  color: var(--emerald-deep);
+  background: rgba(255, 251, 243, 0.76);
+  border: 1px solid rgba(184, 138, 55, 0.34);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(72, 50, 22, 0.09);
+  text-align: left;
+}
+
+.detail-card svg {
+  color: var(--gold);
+}
+
+.detail-card p {
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.detail-card strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--emerald-deep);
+  font-size: 1.03rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.venue-card {
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+}
+
+.venue-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  color: var(--ivory);
+  background: var(--emerald);
+  border: 1px solid rgba(223, 196, 127, 0.38);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.venue-card a:hover,
+.venue-card a:focus-visible {
+  background: var(--emerald-deep);
+  transform: translateY(-1px);
+}
+
+.closing {
+  color: var(--emerald);
+  font-size: 1.08rem;
+  font-style: italic;
+}
+
+.ornament {
+  width: min(240px, 56vw);
+  height: 14px;
+  background:
+    linear-gradient(90deg, transparent, var(--gold-soft), transparent),
+    radial-gradient(circle, var(--gold) 0 3px, transparent 4px);
+  background-position: center;
+  background-size: 100% 1px, 18px 18px;
+  opacity: 0.82;
+}
+
+.ornament.top {
+  margin-bottom: 4px;
+}
+
+.ornament.bottom {
+  margin-top: 2px;
+}
+
+@media (max-width: 900px) {
+  .invite-shell {
+    gap: 18px;
+    padding: 34px 18px;
+  }
+
+  .bismillah {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  .event-panel {
+    max-width: 620px;
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  .date-card strong {
+    font-size: 4.35rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .invite-shell {
+    justify-content: start;
+    min-height: 100dvh;
+    padding: 26px 14px;
+    gap: 14px;
+  }
+
+  .invite-shell::before {
+    background-position: center top;
+  }
+
+  .invite-shell::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(251, 244, 231, 0.16),
+        rgba(251, 244, 231, 0.9) 24%,
+        rgba(251, 244, 231, 0.94) 74%,
+        rgba(251, 244, 231, 0.35)
+      );
+  }
+
+  .bismillah {
+    font-size: 1.55rem;
+  }
+
+  .kicker,
+  .occasion {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+
+  .title-group {
+    gap: 6px;
+  }
+
+  h1 {
+    font-size: 3.45rem;
+  }
+
+  h2 {
+    font-size: 2.85rem;
+  }
+
+  .parentage,
+  .invitation-copy {
+    font-size: 0.98rem;
+  }
+
+  .event-panel {
+    grid-template-columns: 1fr;
+    max-width: 390px;
+    gap: 10px;
+  }
+
+  .date-card {
+    min-height: 158px;
+    padding: 24px 16px 18px;
+  }
+
+  .date-card p {
+    margin-top: 18px;
+  }
+
+  .date-card strong {
+    font-size: 3.7rem;
+  }
+
+  .detail-card {
+    min-height: 92px;
+    grid-template-columns: 34px 1fr;
+    place-items: center start;
+    text-align: left;
+  }
+
+  .venue-card {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .venue-card a {
+    grid-column: 2;
+    justify-self: start;
+    min-height: 38px;
+    margin-top: 4px;
+    padding: 0 12px;
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .invite-shell {
+    gap: 12px;
+    padding: 20px 10px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  .invitation-copy {
+    line-height: 1.48;
+  }
+
+  .date-card {
+    min-height: 146px;
+  }
+
+  .detail-card {
+    padding: 16px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bismillah,
+  .kicker,
+  .title-group,
+  .invitation-copy,
+  .event-panel,
+  .closing,
+  .ornament {
+    animation: reveal 700ms ease both;
+  }
+
+  .kicker {
+    animation-delay: 80ms;
+  }
+
+  .title-group {
+    animation-delay: 150ms;
+  }
+
+  .invitation-copy {
+    animation-delay: 230ms;
+  }
+
+  .event-panel {
+    animation-delay: 310ms;
+  }
+
+  .closing,
+  .ornament.bottom {
+    animation-delay: 390ms;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
