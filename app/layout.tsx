@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Walima Invitation | Talha & Muneeba",
-  description: "Walima invitation for Talha Shahid and Muneeba Gulzar.",
+  title: "Wedding Invitation | Talha & Muneeba",
+  description: "Wedding invitation for Talha Shahid and Muneeba Gulzar.",
 };
 
 export default function RootLayout({

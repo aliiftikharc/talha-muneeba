@@ -35,7 +35,7 @@ export default function InviteGate({ children }: { children: React.ReactNode }) 
         <span className="envelope-back" aria-hidden="true" />
         <span className="envelope-letter" aria-hidden="true">
           <span className="letter-ornament" />
-          <span className="letter-kicker">Walima Ceremony</span>
+          <span className="letter-kicker">Wedding Ceremony</span>
           <span className="letter-names">Talha &amp; Muneeba</span>
           <span className="letter-date">16 November 2026</span>
         </span>

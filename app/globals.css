@@ -453,8 +453,8 @@ h2 {
   }
 
   .couple-bg {
-    background-position: center top;
-    background-size: cover;
+    background-position: 30% 12px;
+    background-size: 118% auto;
     opacity: 0.34;
   }
 

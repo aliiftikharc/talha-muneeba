@@ -9,10 +9,10 @@ export default function Home() {
     <InviteGate>
       <main className="invite-page">
         <header className="site-header">
-          <p>Walima Invitation</p>
+          <p>Wedding Invitation</p>
         </header>
 
-        <section className="invite-shell" aria-label="Walima invitation">
+        <section className="invite-shell" aria-label="Wedding invitation">
           <div className="couple-bg" aria-hidden="true" />
           <div className="ornament top" aria-hidden="true" />
 
@@ -24,7 +24,7 @@ export default function Home() {
           <p className="kicker">With the blessings of Allah Almighty</p>
 
           <div className="title-group">
-            <p className="occasion">Walima Ceremony</p>
+            <p className="occasion">Wedding Ceremony</p>
             <h1>Talha Shahid</h1>
             <p className="parentage">S/O Dr. Shahid Mehmood</p>
             <span className="divider" aria-hidden="true" />

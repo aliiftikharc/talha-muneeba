@@ -32,7 +32,7 @@ export default function Countdown() {
   }
 
   return (
-    <div className="countdown" aria-label="Countdown to the Walima">
+    <div className="countdown" aria-label="Countdown to the Wedding">
       <p className="countdown-title">Counting down to the celebration</p>
       <div className="countdown-grid">
         {units.map(({ label, ms, max }) => {
