@@ -322,6 +322,57 @@ h2 {
   transform: translateY(-1px);
 }
 
+.countdown {
+  width: min(100%, 700px);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.countdown-title {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.countdown-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.countdown-unit {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 16px 8px 14px;
+  background: rgba(255, 251, 243, 0.76);
+  border: 1px solid rgba(184, 138, 55, 0.34);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(72, 50, 22, 0.09);
+}
+
+.countdown-unit strong {
+  color: var(--emerald-deep);
+  font-size: 2.4rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.countdown-unit span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .closing {
   color: var(--emerald);
   font-size: 1.08rem;
@@ -486,6 +537,31 @@ h2 {
     grid-template-columns: 34px minmax(0, 1fr);
   }
 
+  .countdown {
+    max-width: 390px;
+    gap: 10px;
+    margin-block: 12px 4px;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+  }
+
+  .countdown-unit {
+    padding: 12px 4px 10px;
+    background: rgba(255, 251, 243, 0.64);
+    backdrop-filter: blur(3px);
+  }
+
+  .countdown-unit strong {
+    font-size: 1.8rem;
+  }
+
+  .countdown-unit span {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+
   .venue-card a {
     grid-column: 2;
     justify-self: start;
@@ -530,6 +606,7 @@ h2 {
   .title-group,
   .invitation-copy,
   .event-panel,
+  .countdown,
   .closing,
   .ornament {
     animation: reveal 700ms ease both;
@@ -551,9 +628,13 @@ h2 {
     animation-delay: 310ms;
   }
 
+  .countdown {
+    animation-delay: 390ms;
+  }
+
   .closing,
   .ornament.bottom {
-    animation-delay: 390ms;
+    animation-delay: 470ms;
   }
 }
 
@@ -564,8 +645,135 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 28px;
+  position: relative;
   padding: 24px 16px;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.gate-scenery {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.gate-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 58%, rgba(223, 196, 127, 0.22), transparent 70%),
+    radial-gradient(circle at 15% 40%, rgba(242, 196, 193, 0.1), transparent 22%),
+    radial-gradient(circle at 85% 35%, rgba(242, 196, 193, 0.1), transparent 22%),
+    radial-gradient(circle at 70% 75%, rgba(223, 196, 127, 0.08), transparent 18%),
+    radial-gradient(circle at 25% 80%, rgba(223, 196, 127, 0.08), transparent 18%);
+}
+
+.fairy-lights {
+  position: absolute;
+  top: 0;
+  left: -2%;
+  right: -2%;
+  height: clamp(150px, 32dvh, 300px);
+}
+
+.fairy-lights svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.fairy-lights path {
+  fill: none;
+  stroke: rgba(223, 196, 127, 0.38);
+  stroke-width: 1.2;
+}
+
+.bulb {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: -1px 0 0 -4px;
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.bulb::before {
+  position: absolute;
+  top: -3px;
+  left: 2px;
+  width: 4px;
+  height: 3px;
+  content: "";
+  background: rgba(184, 138, 55, 0.8);
+  border-radius: 1px;
+}
+
+.bulb-warm {
+  background: #fff3cf;
+  box-shadow: 0 0 6px 2px rgba(255, 226, 150, 0.85), 0 0 18px 6px rgba(255, 210, 120, 0.35);
+}
+
+.bulb-gold {
+  background: #ffd98a;
+  box-shadow: 0 0 6px 2px rgba(255, 196, 90, 0.85), 0 0 18px 6px rgba(255, 180, 70, 0.32);
+}
+
+.bulb-blush {
+  background: #ffd9d4;
+  box-shadow: 0 0 6px 2px rgba(255, 180, 170, 0.8), 0 0 18px 6px rgba(255, 160, 150, 0.3);
+}
+
+.floral {
+  position: absolute;
+  bottom: -14px;
+  width: clamp(150px, min(46vw, 55dvh), 420px);
+  height: auto;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+}
+
+.floral-left {
+  left: -14px;
+}
+
+.floral-right {
+  right: -14px;
+  transform: scaleX(-1);
+}
+
+.floral-stem {
+  fill: none;
+  stroke: #5f8a6a;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -6%;
+  border-radius: 70% 0 70% 0;
+  opacity: 0.85;
+  animation: petal-fall 12s linear infinite;
+}
+
+.petal-0 {
+  background: linear-gradient(135deg, #f7d3cf, #e7a5a6);
+}
+
+.petal-1 {
+  background: linear-gradient(135deg, #fbf4e7, #ecdcbd);
+}
+
+.petal-2 {
+  background: linear-gradient(135deg, #f3d9a8, #dfc47f);
 }
 
 .envelope {
@@ -581,6 +789,7 @@ h2 {
   border: 0;
   cursor: pointer;
   perspective: 1200px;
+  z-index: 2;
   transition: transform 220ms ease;
 }
 
@@ -608,7 +817,9 @@ h2 {
 
 .envelope-back {
   z-index: 1;
-  background: linear-gradient(180deg, #e6d3b0, #dcc59b);
+  background:
+    radial-gradient(circle, rgba(223, 196, 127, 0.55) 0 1.5px, transparent 2px) 0 0 / 14px 14px,
+    linear-gradient(180deg, #1d5641, var(--emerald-deep));
   border-radius: 8px;
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.42);
 }
@@ -681,10 +892,41 @@ h2 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.4), transparent 45%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.45), transparent 45%),
+    repeating-linear-gradient(45deg, rgba(184, 138, 55, 0.05) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(-45deg, rgba(184, 138, 55, 0.05) 0 1px, transparent 1px 6px),
     linear-gradient(180deg, #f6ecd9, #ecdcbd);
   border-radius: 8px;
   clip-path: polygon(0 0, 50% 54%, 100% 0, 100% 100%, 0 100%);
+}
+
+.pocket-foil,
+.flap-foil {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pocket-foil path,
+.flap-foil path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.pocket-foil .foil-fine,
+.flap-foil .foil-fine {
+  stroke: rgba(184, 138, 55, 0.55);
+  stroke-width: 0.8;
+  stroke-dasharray: 2 4;
+}
+
+.pocket-foil .foil-sprig {
+  stroke: rgba(184, 138, 55, 0.75);
+  stroke-width: 1.2;
+  stroke-linecap: round;
 }
 
 .pocket-text {
@@ -714,12 +956,30 @@ h2 {
     z-index 0s linear 325ms;
 }
 
-.flap-shape {
+.flap-shape,
+.flap-lining {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #efe0c3, #e3cea7);
   border-radius: 8px 8px 0 0;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.flap-shape {
+  background:
+    radial-gradient(circle, rgba(184, 138, 55, 0.14) 0 1.2px, transparent 1.6px) 0 0 / 12px 12px,
+    linear-gradient(180deg, #f3e6cc, #e3cea7);
+}
+
+.flap-lining {
+  opacity: 0;
+  background:
+    radial-gradient(circle, rgba(223, 196, 127, 0.6) 0 1.5px, transparent 2px) 0 0 / 14px 14px,
+    linear-gradient(0deg, #1d5641, var(--emerald-deep));
+  transition: opacity 0s linear 325ms;
+}
+
+.gate-page.is-opening .flap-lining {
+  opacity: 1;
 }
 
 .envelope .envelope-seal {
@@ -737,10 +997,21 @@ h2 {
   background: radial-gradient(circle at 35% 30%, #1d5641, var(--emerald-deep));
   border: 2px solid var(--gold-soft);
   border-radius: 50%;
-  box-shadow: 0 8px 18px rgba(8, 35, 27, 0.35), inset 0 0 0 4px rgba(223, 196, 127, 0.28);
+  box-shadow:
+    0 8px 18px rgba(8, 35, 27, 0.35),
+    0 0 0 3px rgba(184, 138, 55, 0.35),
+    inset 0 0 0 4px rgba(223, 196, 127, 0.28);
   font-size: 4.4cqi;
   transform: translate(-50%, -50%);
   transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.envelope .envelope-seal::before {
+  position: absolute;
+  inset: 3px;
+  content: "";
+  border: 1px dashed rgba(223, 196, 127, 0.7);
+  border-radius: 50%;
 }
 
 .envelope-seal span {
@@ -767,7 +1038,10 @@ h2 {
 }
 
 .gate-hint {
+  position: relative;
+  z-index: 2;
   margin: 0;
+  text-shadow: 0 0 12px rgba(223, 196, 127, 0.5);
   color: var(--gold-soft);
   transition: opacity 300ms ease;
 }
@@ -791,6 +1065,27 @@ h2 {
 
   .invite-page {
     animation: fade-in 600ms ease both;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes petal-fall {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(var(--drift), 112dvh, 0) rotate(600deg);
   }
 }
 
@@ -819,6 +1114,16 @@ h2 {
 
   to {
     opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bulb {
+    animation: none;
+  }
+
+  .petals {
+    display: none;
   }
 }
 

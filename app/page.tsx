@@ -1,4 +1,5 @@
 import { Clock, MapPin, Navigation } from "lucide-react";
+import Countdown from "./countdown";
 import InviteGate from "./invite-gate";
 
 const mapUrl = "https://maps.app.goo.gl/qX7mzFPHnXSJXwaR8";
@@ -74,6 +75,8 @@ export default function Home() {
               </article>
             </div>
           </div>
+
+          <Countdown />
 
           <p className="closing">Your presence will be an honor for us.</p>
           <div className="ornament bottom" aria-hidden="true" />
