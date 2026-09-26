@@ -85,20 +85,17 @@ body {
   inset: 0;
   z-index: -2;
   content: "";
-  background-image: url("/walima-arch-bg.png");
-  background-position: center;
-  background-size: cover;
+  background: url("/walima-arch-bg.png") center / cover no-repeat;
 }
 
 .invite-shell::after {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   content: "";
   background:
     radial-gradient(ellipse at center, rgba(251, 244, 231, 0.82) 0%, rgba(251, 244, 231, 0.7) 42%, rgba(251, 244, 231, 0.55) 100%),
     linear-gradient(rgba(251, 244, 231, 0.38), rgba(251, 244, 231, 0.38)),
-    url("/couple-illustration-bg.png") center / cover no-repeat,
     linear-gradient(
       180deg,
       rgba(251, 244, 231, 0.34),
@@ -107,6 +104,16 @@ body {
       rgba(251, 244, 231, 0.46)
     ),
     radial-gradient(ellipse at center, rgba(251, 244, 231, 0.64), transparent 58%);
+}
+
+.couple-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/couple-walima-bg.jpg") center bottom / contain no-repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.42;
+  pointer-events: none;
 }
 
 .bismillah {
@@ -394,11 +401,16 @@ h2 {
     background-position: center top;
   }
 
+  .couple-bg {
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.34;
+  }
+
   .invite-shell::after {
     background:
       radial-gradient(ellipse at 50% 28%, rgba(251, 244, 231, 0.5) 0%, rgba(251, 244, 231, 0.66) 45%, rgba(251, 244, 231, 0.78) 100%),
       linear-gradient(rgba(251, 244, 231, 0.28), rgba(251, 244, 231, 0.28)),
-      url("/couple-illustration-bg.png") center top / cover no-repeat,
       linear-gradient(
         180deg,
         rgba(251, 244, 231, 0.08),
@@ -542,6 +554,271 @@ h2 {
   .closing,
   .ornament.bottom {
     animation-delay: 390ms;
+  }
+}
+
+.gate-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 24px 16px;
+  overflow: hidden;
+}
+
+.envelope {
+  position: relative;
+  width: min(88vw, 440px, calc((100dvh - 230px) * 4 / 3));
+  min-width: 200px;
+  aspect-ratio: 4 / 3;
+  margin-top: clamp(56px, 12dvh, 80px);
+  container-type: inline-size;
+  padding: 0;
+  font-family: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  perspective: 1200px;
+  transition: transform 220ms ease;
+}
+
+.envelope:hover,
+.envelope:focus-visible {
+  transform: translateY(-4px);
+}
+
+.envelope:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 10px;
+  border-radius: 6px;
+}
+
+.envelope:disabled {
+  cursor: default;
+}
+
+.envelope-back,
+.envelope-pocket,
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+}
+
+.envelope-back {
+  z-index: 1;
+  background: linear-gradient(180deg, #e6d3b0, #dcc59b);
+  border-radius: 8px;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.42);
+}
+
+.envelope-letter {
+  position: absolute;
+  z-index: 2;
+  left: 6%;
+  right: 6%;
+  top: 6%;
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2cqi;
+  padding: 6cqi 4cqi;
+  color: var(--emerald-deep);
+  background:
+    radial-gradient(circle at top, rgba(223, 196, 127, 0.3), transparent 70%),
+    var(--ivory);
+  border-radius: 6px;
+  box-shadow:
+    0 6px 18px rgba(72, 50, 22, 0.18),
+    inset 0 0 0 6px var(--ivory),
+    inset 0 0 0 7px var(--line);
+  text-align: center;
+  transition: transform 800ms cubic-bezier(0.3, 0.8, 0.3, 1) 450ms;
+}
+
+.letter-ornament {
+  width: 60%;
+  height: 14px;
+  background:
+    linear-gradient(90deg, transparent, var(--gold-soft), transparent),
+    radial-gradient(circle, var(--gold) 0 3px, transparent 4px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 1px, 18px 18px;
+}
+
+.letter-kicker,
+.letter-date,
+.pocket-names,
+.gate-hint {
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.letter-kicker,
+.letter-date,
+.pocket-names {
+  font-size: max(0.62rem, 2.7cqi);
+}
+
+.letter-names {
+  font-size: 8cqi;
+  line-height: 1.1;
+}
+
+.envelope-pocket {
+  z-index: 3;
+  filter: drop-shadow(0 -1px 0 rgba(184, 138, 55, 0.45));
+}
+
+.pocket-shape {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.4), transparent 45%),
+    linear-gradient(180deg, #f6ecd9, #ecdcbd);
+  border-radius: 8px;
+  clip-path: polygon(0 0, 50% 54%, 100% 0, 100% 100%, 0 100%);
+}
+
+.pocket-text {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 9%;
+  display: grid;
+  justify-items: center;
+  gap: 1.4cqi;
+  color: var(--emerald-deep);
+}
+
+.pocket-title {
+  font-size: 8.4cqi;
+  line-height: 1.05;
+}
+
+.envelope-flap {
+  z-index: 4;
+  bottom: auto;
+  height: 58%;
+  transform-origin: top center;
+  filter: drop-shadow(0 2px 2px rgba(72, 50, 22, 0.22));
+  transition:
+    transform 650ms ease,
+    z-index 0s linear 325ms;
+}
+
+.flap-shape {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #efe0c3, #e3cea7);
+  border-radius: 8px 8px 0 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.envelope .envelope-seal {
+  position: absolute;
+  z-index: 5;
+  top: 58%;
+  left: 50%;
+  width: 15cqi;
+  height: 15cqi;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--ivory);
+  background: radial-gradient(circle at 35% 30%, #1d5641, var(--emerald-deep));
+  border: 2px solid var(--gold-soft);
+  border-radius: 50%;
+  box-shadow: 0 8px 18px rgba(8, 35, 27, 0.35), inset 0 0 0 4px rgba(223, 196, 127, 0.28);
+  font-size: 4.4cqi;
+  transform: translate(-50%, -50%);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.envelope-seal span {
+  color: var(--gold-soft);
+  font-size: 3.2cqi;
+}
+
+.gate-page.is-opening .envelope-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.gate-page.is-opening .envelope-flap {
+  z-index: 1;
+  transform: rotateX(180deg);
+}
+
+.gate-page.is-opening .envelope-letter {
+  transform: translateY(-48%);
+}
+
+.gate-page.is-opening .gate-hint {
+  opacity: 0;
+}
+
+.gate-hint {
+  margin: 0;
+  color: var(--gold-soft);
+  transition: opacity 300ms ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .envelope {
+    animation: reveal 700ms ease backwards;
+  }
+
+  .gate-hint {
+    animation: gate-hint 2.4s ease-in-out infinite;
+  }
+
+  .gate-page.is-opening {
+    animation: gate-out 600ms ease 1400ms forwards;
+  }
+
+  .gate-page.is-opening .gate-hint {
+    animation: none;
+  }
+
+  .invite-page {
+    animation: fade-in 600ms ease both;
+  }
+}
+
+@keyframes gate-hint {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes gate-out {
+  to {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
